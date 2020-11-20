@@ -1,6 +1,6 @@
-# userテーブル
+# usersテーブル
 | Colunmn            | Type            | Options           |
-| ----------         | --------------- | ----------------- |
+| ------------------ | --------------- | ----------------- |
 | nickname           | string          | null: false       |
 | email              | string          | null: false       |
 | encrypted_password | string          | null: false       |
@@ -12,10 +12,12 @@
 
 ### Association
 - has_many :items
+- belongs_to :purchase_management
+
 
 # itemsテーブル
 | Colunmn            | Type            | Options           |
-| ----------         | --------------- | ----------------- |
+| ------------------ | --------------- | ----------------- |
 | name               | string          | null: false       |
 | explanatory_text   | text            | null: false       |
 | category_id        | integer         | null: false       |
@@ -24,17 +26,17 @@
 | shipment_source_id | integer         | null: false       |
 | shipping_days_id   | integer         | null: false       |
 | price              | string          | null: false       |
-| user_id            | references      |                   |
+| user               | references      | foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_one :customer
+- belongs_to :purchase_management
 
 
 
-# customersテーブル
+# shipping_addressesテーブル
 | Colunmn            | Type            | Options           |
-| ----------         | --------------- | ----------------- |
+| ------------------ | --------------- | ----------------- |
 | postal_code        | string          | null: false       |
 | prefectures_id     | integer         | null: false       |
 | municipalities     | string          | null: false       |
@@ -43,4 +45,16 @@
 | phone_number       | string          | null: false       |
 
 ### Association
-- belongs_to :item
+- belongs_to :purchase_management
+
+
+# purchase_managementsテーブル
+| Colunmn            | Type            | Options           |
+| ------------------ | --------------- | ----------------- |
+| user               | references      | foreign_key: true |
+| item               | references      | foreign_key: true |
+
+### Association
+- has_many :users
+- has_many :items
+- has_one :shipping_address
