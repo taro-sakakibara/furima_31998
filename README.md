@@ -1,24 +1,48 @@
-# README
+# userテーブル
+| Colunmn            | Type            | Options           |
+| ----------         | --------------- | ----------------- |
+| nickname           | text            | null false        |
+| email              | string          | null false        |
+| password           | string          | null false        |
+| first_name_kanji   | text            | null false        |
+| family_name_kanji  | text            | null false        |
+| first_name_kana    | text            | null false        |
+| family_name_kana   | text            | null false        |
+| birthday           | string          | null false        |
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Association
+- has_many :items
 
-Things you may want to cover:
+# itemsテーブル
+| Colunmn            | Type            | Options           |
+| ----------         | --------------- | ----------------- |
+| image              | ActiveStorage   |                   |
+| name               | text            | null false        |
+| explanatory_text   | text            | null false        |
+| category           | text            | null false        |
+| condition          | text            | null false        |
+| delivery_fee       | text            | null false        |
+| shipment_source    | text            | null false        |
+| shipping_days      | text            | null false        |
+| price              | string          | null false        |
+| user_id            | references      |                   |
+| customer_id        | references      |                   |
 
-* Ruby version
+### Association
+- belongs_to :user
 
-* System dependencies
+# customersテーブル
+| Colunmn            | Type            | Options           |
+| ----------         | --------------- | ----------------- |
+| card_number        | string          | null false        |
+| expiration date    | string          | null false        |
+| security_code      | string          | null false        |
+| postal_code        | string          | null false        |
+| prefectures        | text            | null false        |
+| municipalities     | text            | null false        |
+| address            | string          | null false        |
+| building_name      | text            | null false        |
+| phone_number       | string          | null false        |
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- has_many :items
