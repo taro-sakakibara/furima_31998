@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2020-11-20T03:09:58.796Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="9e7oRqkBva2fxmUp3Fz3" version="13.6.5">
+<mxfile host="65bd71144e" modified="2020-11-20T05:40:43.285Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="toKhmR3fGVeUpU11LM5O" version="13.6.5">
     <diagram id="3l6HpHtXdRMpgjQ_29zr" name="ページ1">
-        <mxGraphModel dx="458" dy="896" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="733" dy="645" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -61,7 +61,7 @@
                 <mxCell id="55" value="phone_number" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=15;" parent="37" vertex="1">
                     <mxGeometry y="266" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpSize=6;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.528;entryY=1.027;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=ERmany;startFill=0;startSize=28;sourcePerimeterSpacing=0;endArrow=none;endFill=0;endSize=28;targetPerimeterSpacing=0;strokeWidth=2;fontSize=15;" parent="1" source="36" target="55" edge="1">
+                <mxCell id="62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpSize=6;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.528;entryY=1.027;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;startSize=28;sourcePerimeterSpacing=0;endArrow=none;endFill=0;endSize=28;targetPerimeterSpacing=0;strokeWidth=2;fontSize=15;" parent="1" source="36" target="55" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;jumpSize=6;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmany;startFill=0;startSize=28;sourcePerimeterSpacing=0;endArrow=none;endFill=0;endSize=28;targetPerimeterSpacing=0;strokeWidth=2;fontSize=15;" parent="1" source="36" edge="1">
