@@ -12,7 +12,7 @@
 
 ### Association
 - has_many :items
-- belongs_to :purchase_management
+- has_many :orders
 
 
 # itemsテーブル
@@ -25,16 +25,16 @@
 | delivery_fee_id    | integer         | null: false       |
 | shipment_source_id | integer         | null: false       |
 | shipping_days_id   | integer         | null: false       |
-| price              | string          | null: false       |
+| price              | integer         | null: false       |
 | user               | references      | foreign_key: true |
 
 ### Association
 - belongs_to :user
-- belongs_to :purchase_management
+- has_one :order
 
 
 
-# shipping_addressesテーブル
+# order_addressesテーブル
 | Colunmn            | Type            | Options           |
 | ------------------ | --------------- | ----------------- |
 | postal_code        | string          | null: false       |
@@ -43,18 +43,19 @@
 | address            | string          | null: false       |
 | building_name      | string          |                   |
 | phone_number       | string          | null: false       |
+| order              | references      | foreign_key: true |
 
 ### Association
-- belongs_to :purchase_management
+- belongs_to :order
 
 
-# purchase_managementsテーブル
+# ordersテーブル
 | Colunmn            | Type            | Options           |
 | ------------------ | --------------- | ----------------- |
 | user               | references      | foreign_key: true |
 | item               | references      | foreign_key: true |
 
 ### Association
-- has_many :users
-- has_many :items
-- has_one :shipping_address
+- belongs_to :user
+- belongs_to :item
+- has_one :order_address
