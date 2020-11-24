@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   with_options presence: true do
+    validates :image
     validates :name, length: { maximum: 40 }
     validates :explanatory_text, length: { maximum: 1000 }
     validates :category_id
@@ -7,16 +8,17 @@ class Item < ApplicationRecord
     validates :delivery_fee_id
     validates :prefecture_id
     validates :shipping_day_id
-    validates :price, format: {with: /\A[0-9]+\z/, message:"Full-width number characters"}
+    validates :price, format: {with: /\A[0-9]+\z/, message:"Half-width number"},
+      numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message:"Out of setting range"}
   end
 
-  with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 1, message:"Select"} do
     validates :category_id
     validates :condition_id
     validates :delivery_fee_id
     validates :shipping_day_id
+    validates :prefecture_id
   end
-  validates :prefecture_id, numericality: { other_than: 0 } 
   
   belongs_to :user
   has_one :order
