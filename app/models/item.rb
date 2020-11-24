@@ -16,7 +16,7 @@ class Item < ApplicationRecord
     validates :delivery_fee_id
     validates :shipping_day_id
   end
-  validates :prefecture, numericality: { other_than: 0 } 
+  validates :prefecture_id, numericality: { other_than: 0 } 
   
   belongs_to :user
   has_one :order
