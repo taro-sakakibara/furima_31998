@@ -1,6 +1,5 @@
 
 function math(){
-  console.log("ok")
   const inputPrice = document.getElementById("item-price")
   const taxPrice = document.getElementById("add-tax-price")
   const sellsProfit = document.getElementById("profit")
