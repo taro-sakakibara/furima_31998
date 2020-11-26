@@ -54,6 +54,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    if user_signed_in? && current_user.id == @item.user_id
+      @item.destroy
+    elsif user_signed_in?
+      redirect_to action: :index
+    else
+      redirect_to user_session_path
+    end
+    @item.destroy
+    redirect_to root_path
+  end
+
   def item_params
     params.require(:item).permit(:name, :explanatory_text, :category_id, :condition_id, :delivery_fee_id, :prefecture_id, :shipping_day_id, :price, :image).merge(user_id: current_user.id)
   end
