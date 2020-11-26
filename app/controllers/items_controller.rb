@@ -27,10 +27,10 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     if user_signed_in? && current_user.id == @item.user_id
-      elsif user_signed_in?
-        redirect_to action: :index
-      else
-        redirect_to user_session_path
+    elsif user_signed_in?
+      redirect_to action: :index
+    else
+      redirect_to user_session_path
     end
   end
 
@@ -41,7 +41,6 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
-
   end
 
   def item_params
