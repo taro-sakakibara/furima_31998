@@ -57,12 +57,7 @@ class ItemsController < ApplicationController
   def destroy
     if user_signed_in? && current_user.id == @item.user_id
       @item.destroy
-    elsif user_signed_in?
-      redirect_to action: :index
-    else
-      redirect_to user_session_path
     end
-    @item.destroy
     redirect_to root_path
   end
 
