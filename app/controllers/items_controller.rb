@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :item, except: [:index, :new, :create]
   def index
     @items = Item.all.order('created_at DESC')
   end
@@ -20,12 +21,14 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
+  def item
     @item = Item.find(params[:id])
   end
 
+  def show
+  end
+
   def edit
-    @item = Item.find(params[:id])
     if user_signed_in? && current_user.id == @item.user_id
     elsif user_signed_in?
       redirect_to action: :index
@@ -35,7 +38,14 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
+    if user_signed_in? && current_user.id == @item.user_id
+      @item.update(item_params)
+    elsif user_signed_in?
+      redirect_to action: :index
+    else
+      redirect_to user_session_path
+    end
+
     if @item.update(item_params)
       redirect_to root_path
     else
