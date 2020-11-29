@@ -1,18 +1,16 @@
 class OrdersController < ApplicationController
   def index
-    @order = Order.new(order_params)
+    @order_order_address = OrderOrderAddress.new
   end
-  
-  def create
-    order = Order.create(order_params)
-    binding.pry
-    OrderAddress.create(order_address_params(order))
 
-    if order.valid?
+  def create
+    @order_order_address = OrderOrderAddress.new(order_params)
+    if @order_order_address.valid?
       pay_item
-      order.save
+      @order_order_address.save
       redirect_to root_path
     else
+      binding.pry
       render 'index'
   end
 end
@@ -20,19 +18,15 @@ end
   private
 
   def order_params
-    params.permit.merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
-  end
-
-  def order_address_params(order)
-    params.permit(:postal_code, :prefecture_id, :municipalities, :address, :building_name, :phone_number).merge(order_id: order.id)
+    params.require(:order_order_address).permit(:postal_code, :prefecture_id, :municipalities, :address, :building_name, :phone_number).merge(token: params[:token], user_id: current_user.id, item_id: params[:item_id])
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_15c43d9f7b9d937f2f9ad981"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp.api_key = "sk_test_15c43d9f7b9d937f2f9ad981"
     Payjp::Charge.create(
-      amount: order.item.price,  # 商品の値段
-      card: order_params[:token],    # カードトークン
-      currency: 'jpy'                 # 通貨の種類（日本円）
+      amount: Item.find(params[:item_id]).price,
+      card: order_params[:token],
+      currency: 'jpy'
     )
   end
 
