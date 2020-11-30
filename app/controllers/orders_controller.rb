@@ -1,18 +1,32 @@
 class OrdersController < ApplicationController
   def index
-    @order_order_address = OrderOrderAddress.new
+    @item =  Item.find(params[:item_id])
+    if user_signed_in? && current_user.id != Item.find(params[:item_id]).user_id
+      @order_order_address = OrderOrderAddress.new
+    elsif user_signed_in?
+      redirect_to root_path
+    else
+      redirect_to user_session_path
+    end
   end
 
   def create
-    @order_order_address = OrderOrderAddress.new(order_params)
-    if @order_order_address.valid?
-      pay_item
-      @order_order_address.save
+    if user_signed_in? && current_user.id != Item.find(params[:item_id]).user_id
+      @order_order_address = OrderOrderAddress.new(order_params)
+      if @order_order_address.valid?
+        pay_item
+        @order_order_address.save
+        redirect_to root_path
+      else
+        render :index
+    end
+    elsif user_signed_in?
       redirect_to root_path
     else
-      binding.pry
-      render 'index'
+      redirect_to user_session_path
   end
+
+
 end
 
   private
