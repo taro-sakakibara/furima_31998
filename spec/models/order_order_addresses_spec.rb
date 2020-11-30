@@ -6,7 +6,11 @@ RSpec.describe OrderOrderAddress, type: :model do
   end
   describe '商品購入' do
     context '商品購入がうまくいくとき' do
-      it 'token,postal_code,prefecture_id,municipalities,address,phone_numberが存在すれば購入できる' do
+      it 'token,postal_code,prefecture_id,municipalities,address,phone_number,user_id,item_idが存在すれば購入できる' do
+        expect(@order_order_address).to be_valid
+      end
+      it '建物名が抜けていても購入できる' do
+        @order_order_address.building_name = nil
         expect(@order_order_address).to be_valid
       end
     end
@@ -53,6 +57,11 @@ RSpec.describe OrderOrderAddress, type: :model do
       end
       it 'phone_numberが半角英数字以外では登録できない' do
         @order_order_address.phone_number = '０９０１２３４１２３４'
+        @order_order_address.valid?
+        expect(@order_order_address.errors.full_messages).to include('Phone number is invalid')
+      end
+      it 'phone_numberが11桁以内でないと登録できない' do
+        @order_order_address.phone_number = 123_123_412_345
         @order_order_address.valid?
         expect(@order_order_address.errors.full_messages).to include('Phone number is invalid')
       end

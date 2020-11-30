@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
-  def index
+  before_action :item
+
+  def item
     @item = Item.find(params[:item_id])
+  end
+
+  def index
     if user_signed_in? && current_user.id != Item.find(params[:item_id]).user_id
       @order_order_address = OrderOrderAddress.new
     elsif user_signed_in?
@@ -11,7 +16,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     if user_signed_in? && current_user.id != Item.find(params[:item_id]).user_id
       @order_order_address = OrderOrderAddress.new(order_params)
       if @order_order_address.valid?
