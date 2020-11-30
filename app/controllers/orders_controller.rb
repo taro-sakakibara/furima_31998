@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    if user_signed_in? && current_user.id != Item.find(params[:item_id]).user_id
+    if user_signed_in? && current_user.id != @item.user_id
       @order_order_address = OrderOrderAddress.new
     elsif user_signed_in?
       redirect_to root_path
@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    if user_signed_in? && current_user.id != Item.find(params[:item_id]).user_id
+    if user_signed_in? && current_user.id != @item.user_id
       @order_order_address = OrderOrderAddress.new(order_params)
       if @order_order_address.valid?
         pay_item
