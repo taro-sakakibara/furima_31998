@@ -32,7 +32,7 @@
         <% end %>
     <% end %>
     
-   <% if user_signed_in?  && current_user.id != @item.user_id && %>
+   <% if user_signed_in?  && current_user.id != @item.user_id %>
      <% if @item.order.present? %>
        <% else %>
          <%= link_to '購入画面に進む', item_orders_path(@item.id), method: :get, class:"item-red-btn"%>
