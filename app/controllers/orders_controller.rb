@@ -2,10 +2,10 @@ class OrdersController < ApplicationController
   before_action :item
 
   def index
-    if user_signed_in? && current_user.id != @item.user_id
-      @order_order_address = OrderOrderAddress.new
-    elsif user_signed_in?
+    if @item.order.present? && user_signed_in?
       redirect_to root_path
+    elsif user_signed_in? && current_user.id != @item.user_id
+      @order_order_address = OrderOrderAddress.new
     else
       redirect_to user_session_path
     end
