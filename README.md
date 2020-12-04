@@ -1,4 +1,5 @@
-# usersテーブル
+## データベース設計
+### usersテーブル
 | Colunmn            | Type            | Options           |
 | ------------------ | --------------- | ----------------- |
 | nickname           | string          | null: false       |
@@ -10,12 +11,12 @@
 | family_name_kana   | string          | null: false       |
 | birthday           | date            | null: false       |
 
-### Association
+#### Association
 - has_many :items
 - has_many :orders
 
 
-# itemsテーブル
+### itemsテーブル
 | Colunmn            | Type            | Options           |
 | ------------------ | --------------- | ----------------- |
 | name               | string          | null: false       |
@@ -28,13 +29,13 @@
 | price              | integer         | null: false       |
 | user               | references      | foreign_key: true |
 
-### Association
+#### Association
 - belongs_to :user
 - has_one :order
 
 
 
-# order_addressesテーブル
+### order_addressesテーブル
 | Colunmn            | Type            | Options           |
 | ------------------ | --------------- | ----------------- |
 | postal_code        | string          | null: false       |
@@ -45,7 +46,7 @@
 | phone_number       | string          | null: false       |
 | order              | references      | foreign_key: true |
 
-### Association
+#### Association
 - belongs_to :order
 
 
