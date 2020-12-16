@@ -12,7 +12,7 @@ Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code</br>
 合計：91時間程度</br>
 
 ## 接続先情報
-https://heroku.com/furima-31998</br>
+https://furima-31998.herokuapp.com/</br>
 ID/Pass</br>
 ID: admin</br>
 Pass: 2222</br>
