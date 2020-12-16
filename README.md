@@ -4,31 +4,31 @@
 オンライン上でフリーマーケットを実現できるアプリケーションを作成しました。
 
 ## 開発状況
-開発環境
-Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code
-開発期間と平均作業時間
-開発期間：11/20~12/2(13日間)
-1日あたりの平均作業時間：7
-合計：91時間程度
+開発環境</br>
+Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code</br>
+開発期間と平均作業時間</br>
+開発期間：11/20~12/2(13日間)</br>
+1日あたりの平均作業時間：7</br>
+合計：91時間程度</br>
 
-# 接続先情報
-https://git.heroku.com/furima-31998.git
-ID/Pass
-ID: admin
-Pass: 2222
+## 接続先情報
+https://git.heroku.com/furima-31998.git</br>
+ID/Pass</br>
+ID: admin</br>
+Pass: 2222</br>
 
-# テスト用アカウント等
-購入者用
-メールアドレス: furima@furima
-パスワード: 0914furima
-購入用カード情報
-番号：4242424242424242
-期限：12月/30年
-セキュリティコード：123
+## テスト用アカウント等
+購入者用</br>
+メールアドレス: furima@furima</br>
+パスワード: 0914furima</br>
+購入用カード情報</br>
+番号：4242424242424242</br>
+期限：12月/30年</br>
+セキュリティコード：123</br>
 
-出品者用
-メールアドレス名: jiro@jiro
-パスワード: jiro@jiro
+出品者用</br>
+メールアドレス名: jiro@jiro</br>
+パスワード: jiro@jiro</br>
 
 ## 動作確認方法
 WebブラウザGoogle Chromeの最新版を利用してアクセスしてください。
