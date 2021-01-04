@@ -28,7 +28,7 @@ Pass: 2222</br>
 
 出品者用</br>
 メールアドレス名: jiro@jiro</br>
-パスワード: jiro@jiro</br>
+パスワード: 0914jiro</br>
 
 ## 動作確認方法
 WebブラウザGoogle Chromeの最新版を利用してアクセスしてください。
